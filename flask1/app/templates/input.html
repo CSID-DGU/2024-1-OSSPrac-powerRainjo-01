@@ -1,35 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Form</title>
+  </head>
   <body>
+    <h1>Team01: 파워레인조</h1>
     <form action="/result" method="POST">
-      <p>Name <input type="text" name="name" /></p>
-
-      <p>
-        Student Number
-        <input type="text" id="StudentNumber" name="StudentNumber" />
-      </p>
-
-      <p>Gender<br>
-        <input type="radio" name="gender" value="Male"> Male <br>
-        <input type="radio" name="gender", value="Female"> Female<br>
-      </p>
-
-      <p>
-        Major
-        <input type="text" id="MajorInfo" name="MajorInfo" />
-      </p>
-
-      <p>Programming Languages<br>
-        <input type="checkbox" id="python" name="languages" value="Python">
-        <label for="python">Python</label>
-        <input type="checkbox" id="java" name="languages" value="Java">
-        <label for="java">Java</label>
-        <input type="checkbox" id="html" name="languages" value="HTML">
-        <label for="html">HTML</label>
-        <input type="checkbox" id="cpp" name="languages" value="C++">
-        <label for="cpp">C++</label>
-      </p>
-      
+      <p><b>* Name</b> <input type="text" name="name" /></p>
+      <p><b>* Student Number </b><input type="text" name="student_number" /></p>
+      <p><b>* University </b><input type="text" name="university" /></p>
+      <p><b>* Major </b><input type="text" name="major" /></p>
+      <p><b>* Gender</b></p>
+      <input type="radio" name="gender" value="Male" /> Male
+      <input type="radio" name="gender" value="Female" /> Female
+      <p></p>
+      <form>
+        <label for="email"><b>* Email</b></label>
+        <input type="text" id="email" name="email" />
+        @
+        <select name="domain">
+          <option value="" selected>선택</option>
+          <option value="@naver.com">naver.com</option>
+          <option value="@gmail.com">gmail.com</option>
+          <option value="@dgu.ac.kr">dgu.ac.kr</option>
+          <option value="@dongguk.edu">dongguk.edu</option>
+          <option value="@hanmail.net">hanmail.net</option>
+        </select>
+      </form>
+      <p><b>* Programming Languages</b></p>
+      <input type="checkbox" id="python" name="languages" value="Python" />
+      <label for="python">Python</label>
+      <input type="checkbox" id="java" name="languages" value="Java" />
+      <label for="java">Java</label>
+      <input type="checkbox" id="html" name="languages" value="HTML" />
+      <label for="html">HTML</label>
+      <input type="checkbox" id="cpp" name="languages" value="C++" />
+      <label for="cpp">C++</label>
       <button type="submit" name="submit" value="submit">submit</button>
     </form>
   </body>
