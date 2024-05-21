@@ -1,26 +1,25 @@
 from flask import Flask, render_template, request
 
-app=Flask(__name__)
+app = Flask(__name__)
 
 @app.route('/')
 def input():
     return render_template('input.html')
 
-@app.route('/result',methods=['POST','GET'])
+@app.route('/result', methods=['POST'])
 def result():
-    if request.method =='POST':
-        result=dict()
-        result['Name']=request.form.get('name')
-        result['Student Number']=request.form.get('StudentNumber')
-        result['University'] = request.form.get('University')
-        result['Major']=request.form.get('Major')
-        result['Gender']=request.form.get('Gender')
-        email_prefix = request.form.get('Email')
+    if request.method == 'POST':
+        result = {}
+        result['Name'] = request.form.get('name')
+        result['Student Number'] = request.form.get('student_number')
+        result['University'] = request.form.get('university')
+        result['Major'] = request.form.get('major')
+        result['Gender'] = request.form.get('gender')
+        email_prefix = request.form.get('email_prefix')
         email_domain = request.form.get('email_domain')
         result['Email'] = f"{email_prefix}@{email_domain}"
-        result['Programming Languages']=" ".join(request.form.getlist('PL'))
-        return render_template('result.html',result=result)
+        result['Programming Languages'] = ", ".join(request.form.getlist('languages'))
+        return render_template('result.html', result=result)
 
-if __name__ =='__main__':
-     app.run(debug=True)
-     
+if __name__ == '__main__':
+    app.run(debug=True)

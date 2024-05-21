@@ -8,26 +8,23 @@
     <h1>Team01: 파워레인조</h1>
     <form action="/result" method="POST">
       <p><b>* Name</b> <input type="text" name="name" /></p>
-      <p><b>* Student Number </b><input type="text" name="student_number" /></p>
-      <p><b>* University </b><input type="text" name="university" /></p>
-      <p><b>* Major </b><input type="text" name="major" /></p>
+      <p><b>* Student Number</b> <input type="text" name="student_number" /></p>
+      <p><b>* University</b> <input type="text" name="university" /></p>
+      <p><b>* Major</b> <input type="text" name="major" /></p>
       <p><b>* Gender</b></p>
       <input type="radio" name="gender" value="Male" /> Male
       <input type="radio" name="gender" value="Female" /> Female
       <p></p>
-      <form>
-        <label for="email"><b>* Email</b></label>
-        <input type="text" id="email" name="email" />
-        @
-        <select name="domain">
-          <option value="" selected>선택</option>
-          <option value="@naver.com">naver.com</option>
-          <option value="@gmail.com">gmail.com</option>
-          <option value="@dgu.ac.kr">dgu.ac.kr</option>
-          <option value="@dongguk.edu">dongguk.edu</option>
-          <option value="@hanmail.net">hanmail.net</option>
-        </select>
-      </form>
+      <label for="email"><b>* Email</b></label>
+      <input type="text" id="email" name="email_prefix" />@
+      <select name="email_domain">
+        <option value="" selected>선택</option>
+        <option value="naver.com">naver.com</option>
+        <option value="gmail.com">gmail.com</option>
+        <option value="dgu.ac.kr">dgu.ac.kr</option>
+        <option value="dongguk.edu">dongguk.edu</option>
+        <option value="hanmail.net">hanmail.net</option>
+      </select>
       <p><b>* Programming Languages</b></p>
       <input type="checkbox" id="python" name="languages" value="Python" />
       <label for="python">Python</label>
@@ -37,7 +34,9 @@
       <label for="html">HTML</label>
       <input type="checkbox" id="cpp" name="languages" value="C++" />
       <label for="cpp">C++</label>
-      <button type="submit" name="submit" value="submit">submit</button>
+      <div>
+        <button type="submit" name="submit" value="submit">submit</button>
+      </div>
     </form>
   </body>
 </html>
