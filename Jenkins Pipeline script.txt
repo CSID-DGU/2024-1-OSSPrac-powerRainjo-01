@@ -1,0 +1,54 @@
+User
+
+pipeline {
+    agent any  
+
+    triggers {
+            pollSCM('H/3 * * * *')
+    } 
+
+    environment {
+        DOCKER = credentials('docker-hub')
+
+    } 
+
+    stages {
+        stage('Prepare') {
+                    agent any
+                    steps {
+
+                            git url : 'https://github.com/CSID-DGU/2024-1-OSSPrac-powerRainjo-1.git',
+                                    branch : 'main',
+                                    credentialsId: 'github'
+                    }
+        }
+
+
+        stage('Build') {
+
+            steps {
+                dir('/var/jenkins_home/workspace/2024-1-OSSPrac-powerRainjo-1/teamsub5'){
+                    sh 'docker compose build frontapp'
+                }
+           }
+        }
+
+        stage('Tag') {
+            steps {
+                script {
+                    def imageName = "${DOCKER_USR}/teamsub6-front-end:${BUILD_NUMBER}"
+                    sh "docker tag ohchanju/frontapp:latest ${imageName}"
+                }
+            }
+        }
+
+        stage('Push') {
+            steps {
+                script {
+                    sh "docker login -u $DOCKER_USR -p $DOCKER_PSW"
+                    sh "docker push ${DOCKER_USR}/teamsub6-front-end:${BUILD_NUMBER}"
+                }
+            }
+        }
+    }
+}
